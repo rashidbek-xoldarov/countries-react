@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+/* FONTS */
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("./assets/fonts/NunitoSans-SemiBold.woff2") format("woff2"),
+    url("./assets/fonts/NunitoSans-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("./assets/fonts/NunitoSans-Light.woff2") format("woff2"),
+    url("./assets/fonts/NunitoSans-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("./assets/fonts/NunitoSans-ExtraBold.woff2") format("woff2"),
+    url("./assets/fonts/NunitoSans-ExtraBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("./assets/fonts/NunitoSans-Regular.woff2") format("woff2"),
+    url("./assets/fonts/NunitoSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* GENERAL */
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: 2px dashed blue;
+  outline-offset: 3px;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  height: auto;
+}
+
+body {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 16px;
+  color: #000;
+  background-color: #fafafa;
+}
+
+/* VISUALLY-HIDDEN */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* CONTAINER */
+
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+/* STICKY-FOOTER */
+
+.site-main {
+  flex-grow: 1;
+}
+
+.link-wrapper {
+  width: 300px;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  justify-content: space-between;
 }

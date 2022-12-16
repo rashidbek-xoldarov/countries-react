@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import CountriesList from "./components/Countries/CountriesList";
+import Form from "./components/Form/Form";
+import Header from "./components/Header/Header";
 
 function App() {
+  const [data, setData] = useState([]);
+  const [text, setText] = useState("");
+  const [region, setRegion] = useState("");
+
+  useEffect(() => {
+    fetch(
+      `https://restcountries.com/v3.1/${
+        text ? `name/${text}` : region ? `/region/${region}` : "all"
+      }`,
+    )
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, [text, region]);
+
+  const updateText = (text) => {
+    setText(text);
+    setRegion("");
+  };
+
+  const UpdateSelectValue = (region) => {
+    setRegion(region);
+    setText("");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <main className="site-main">
+        <Form
+          getInputVal={updateText}
+          getSelectValue={UpdateSelectValue}
+          region={region}
+        />
+        <CountriesList data={data} />
+      </main>
+    </>
   );
 }
 
