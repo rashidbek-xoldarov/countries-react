@@ -50,3 +50,7 @@
   height: 160px;
   object-fit: cover;
 }
+
+.countries-link {
+  text-decoration: none;
+}
