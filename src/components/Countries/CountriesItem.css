@@ -2,7 +2,7 @@
   width: 264px;
   margin-bottom: 75px;
   list-style: none;
-  background: #ffffff;
+  background: var(--header-bg);
   box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
   border-radius: 5px;
 }
@@ -17,7 +17,7 @@
   font-weight: 800;
   font-size: 18px;
   line-height: 26px;
-  color: #111517;
+  color: var(--text-color);
 }
 
 .difinition-list {
@@ -30,7 +30,7 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 16px;
-  color: #111517;
+  color: var(--text-color);
 }
 
 .difinition-inner:not(:last-child) {

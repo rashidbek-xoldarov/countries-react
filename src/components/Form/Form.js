@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import "./Form.css";
+import { lang } from "../lang/Lang";
+import { LangContext } from "../../context/LangContext";
 
 const Form = (props) => {
+  const { leng } = useContext(LangContext);
   const [inputVal, setInputVale] = useState("");
 
   const getInputVal = (evt) => {
@@ -26,7 +29,7 @@ const Form = (props) => {
             className="site-form__input"
             type="text"
             name="user_search"
-            placeholder="Search for a country…"
+            placeholder={lang[leng].form.placeholder}
             value={inputVal}
             onChange={getInputVal}
           />
@@ -37,7 +40,7 @@ const Form = (props) => {
           defaultValue={props.region}
         >
           <option value="0" hidden>
-            Filter by Region
+            {lang[leng].form.placeholder}
           </option>
           <option value="Africa">Africa</option>
           <option value="America">America</option>

@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import Form from "../Form/Form";
 import CountriesItem from "./CountriesItem";
@@ -57,4 +58,4 @@ const CountriesList = () => {
   );
 };
 
-export default CountriesList;
+export default React.memo(CountriesList);

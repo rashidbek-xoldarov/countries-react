@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { LangContext } from "../../context/LangContext";
+import { lang } from "../lang/Lang";
 
 import "./SingleCountry.css";
 
 const SingleCountry = () => {
   const [obj, setObj] = useState("");
+  const { leng } = useContext(LangContext);
 
   const { name } = useParams();
   const navigate = useNavigate();
@@ -21,7 +24,7 @@ const SingleCountry = () => {
         {obj ? (
           <div className="single-inner">
             <button className="single-btn" onClick={() => navigate("/")}>
-              Back
+              {lang[leng].single.btn}
             </button>
             <div className="single-info-wrapper">
               <img
@@ -36,32 +39,38 @@ const SingleCountry = () => {
                 <div className="single-info-list-wrapper">
                   <ul className="single-info-list">
                     <li className="single-info-item">
-                      Native Name: {obj.name?.common}
+                      {lang[leng].single.name}: {obj.name?.common}
                     </li>
                     <li className="single-info-item">
-                      Population: {obj.population}
+                      {lang[leng].single.population}: {obj.population}
                     </li>
-                    <li className="single-info-item">Region: {obj.region}</li>
                     <li className="single-info-item">
-                      Sub Region: {obj.subregion}
+                      {lang[leng].single.region}: {obj.region}
                     </li>
-                    <li className="single-info-item">Capital: {obj.capital}</li>
+                    <li className="single-info-item">
+                      {lang[leng].single.subRegion}: {obj.subregion}
+                    </li>
+                    <li className="single-info-item">
+                      {lang[leng].single.capital}: {obj.capital}
+                    </li>
                   </ul>
                   <ul className="single-info-list">
                     <li className="single-info-item">
-                      Top Lavel Domain: {obj.tld}
+                      {lang[leng].single.domain}: {obj.tld}
                     </li>
                     <li className="single-info-item">
-                      Currencies: {Object.keys(obj.currencies)}
+                      {lang[leng].single.currencies}:{" "}
+                      {Object.keys(obj.currencies)}
                     </li>
                     <li className="single-info-item">
-                      Language: {Object.values(obj.languages).join(", ")}
+                      {lang[leng].single.language}:{" "}
+                      {Object.values(obj.languages).join(", ")}
                     </li>
                   </ul>
                 </div>
                 <div className="single-info-border-wrapper">
                   <span className="single-info-border-title">
-                    Border Countries:
+                    {lang[leng].single.border}:
                   </span>
                   {obj.borders ? (
                     obj.borders.map((item) => (

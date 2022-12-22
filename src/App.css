@@ -1,3 +1,9 @@
+:root {
+  --header-bg: #fff;
+  --body-bg: #fafafa;
+  --text-color: #111517;
+}
+
 /* FONTS */
 @font-face {
   font-family: "Nunito Sans";
@@ -66,7 +72,13 @@ body {
   font-weight: normal;
   line-height: 16px;
   color: #000;
-  background-color: #fafafa;
+  background-color: var(--body-bg);
+}
+
+.dark {
+  --header-bg: #2b3844;
+  --body-bg: #202c36;
+  --text-color: #fff;
 }
 
 /* VISUALLY-HIDDEN */
